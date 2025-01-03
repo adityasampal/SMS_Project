@@ -89,4 +89,22 @@ public class AdminController {
 		return "adminscreen";
 
 	}
+	
+	@RequestMapping("/batch")
+	public String batch(@RequestParam int id,Model m) {
+		
+		Student s = ssi.getSinglStudent(id);
+		m.addAttribute("st", s);
+		return "batch";
+	}
+	
+	@RequestMapping("/shiftbatch")
+	public String BatchShifting(@RequestParam int studentId,@RequestParam String batch,@RequestParam String mode,Model m) {
+		
+		ssi.shiftStudentBatch(studentId,batch,mode);
+		List<Student> students =ssi.getAllStudents();
+		m.addAttribute("data", students);
+		return "adminscreen";
+		
+	}
 }

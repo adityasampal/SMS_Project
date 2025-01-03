@@ -13,6 +13,8 @@ public interface StudentServiceI {
 	List<Student> updateStudentFees(int id, float amount);
 	void removeStudent(int id);
 	List<Student> paging(int pageNo, int i);
+	void shiftStudentBatch(int studentId, String batch, String mode);
+	
 	
 
 }
